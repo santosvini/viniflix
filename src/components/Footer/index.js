@@ -11,11 +11,15 @@ function Footer() {
         Orgulhosamente criado durante a
         {' '}
         <a href="https://www.alura.com.br/">
-          Imersão React da Alura</a> por
-      <p>
-        <a href="https://github.com/vinisantos7">
-        Vinicius Santos</a> 
-      </p>
+          Imersão React da Alura
+        </a>
+        {' '}
+        por
+        <p>
+          <a href="https://github.com/vinisantos7">
+            Vinicius Santos
+          </a>
+        </p>
       </p>
     </FooterBase>
   );

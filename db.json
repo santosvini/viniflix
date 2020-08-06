@@ -1,0 +1,16 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Front End",
+      "descricao": "Categoria das melhores",
+      "cor": "#cbd1ff"
+    },
+    {
+      "id": 2,
+      "nome": "Back End",
+      "descricao": "Categoria das boas",
+      "cor": "#cbd1ff"
+    }
+    ]
+  }
