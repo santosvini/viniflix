@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
@@ -23,10 +23,41 @@ function CadastroCategoria() {
   function handleChange(infosDoEvento) {
     const { getAttribute, value } = infosDoEvento;
     setValue(
-      getAttribute('name'),
-      value,
+      infosDoEvento.target.getAttribute('name'),
+      infosDoEvento.target.value,
     );
   }
+
+  useEffect(() => {
+    console.log('alo alo w brasil');
+    const URL_TOP = 'http://localhost:8080/categorias';
+    // E a ju ama variáveis
+    fetch(URL_TOP)
+      .then(async (respostaDoServidor) => {
+        const resposta = await respostaDoServidor.json();
+        setCategorias([
+          ...resposta,
+        ]);
+      });
+
+    // setTimeout(() => {
+    //   setCategorias([
+    //     ...categorias,
+    //     {
+    //       id: 1,
+    //       nome: 'Front End',
+    //       descricao: 'Uma categoria bacanudassa',
+    //       cor: '#cbd1ff',
+    //     },
+    //     {
+    //       id: 2,
+    //       nome: 'Back End',
+    //       descricao: 'Outra categoria bacanudassa',
+    //       cor: '#cbd1ff',
+    //     },
+    //   ]);
+    // }, 4 * 1000);
+  }, []);
 
   return (
     <PageDefault>
@@ -50,15 +81,15 @@ function CadastroCategoria() {
           label="Nome da Categoria"
           name="nome"
           value={values.nome}
-          onChanged={handleChange}
+          onChange={handleChange}
         />
 
         <FormField
-          label="Descricao"
+          label="Descrição"
           type="textarea"
           name="descricao"
           value={values.descricao}
-          onChanged={handleChange}
+          onChange={handleChange}
         />
 
         <FormField
@@ -66,13 +97,19 @@ function CadastroCategoria() {
           type="color"
           name="cor"
           value={values.cor}
-          onChanged={handleChange}
+          onChange={handleChange}
         />
 
         <Button>
           Cadastrar
         </Button>
       </form>
+
+      {categorias.length === 0 && (
+        <div>
+          Loading...
+        </div>
+      )}
 
       <ul>
         {categorias.map((categoria) => (
@@ -83,7 +120,7 @@ function CadastroCategoria() {
       </ul>
 
       <Link to="/">
-        Ir para Home
+        Ir para home
       </Link>
     </PageDefault>
   );
