@@ -15,11 +15,10 @@ function Footer() {
         </a>
         {' '}
         por
-        <p>
-          <a href="https://github.com/vinisantos7">
-            Vinicius Santos
-          </a>
-        </p>
+        {' '}
+        <a href="https://github.com/vinisantos7">
+          Vinicius Santos
+        </a>
       </p>
     </FooterBase>
   );

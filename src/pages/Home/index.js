@@ -5,42 +5,42 @@ import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import Footer from '../../components/Footer';
 
-
 function Home() {
   return (
-    <div style= {{background: '#141414'}}>
+    <div style={{ background: '#141414' }}>
       <Menu />
 
-      <BannerMain 
-      videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
-      videoDescription={"Desenvolvendo e aprendendo React na prática! Seja bem-vindo a ViniFlix, conteúdos diversos para seu gosto em tecnologia, game, e esportes!"}
-      url={dadosIniciais.categorias[0].videos[0].url}/>
-      
-      <Carousel
-      ignoreFirstVideo
-      category={dadosIniciais.categorias[0]}
-      />
-      <Carousel
-      category={dadosIniciais.categorias[1]}
+      <BannerMain
+        videoTitle={dadosIniciais.categorias[0].videos[0].titulo}
+        videoDescription="Desenvolvendo e aprendendo React na prática! Seja bem-vindo a ViniFlix, conteúdos diversos para seu gosto em tecnologia, game, e esportes!"
+        url={dadosIniciais.categorias[0].videos[0].url}
       />
 
       <Carousel
-      category={dadosIniciais.categorias[2]}
+        ignoreFirstVideo
+        category={dadosIniciais.categorias[0]}
+      />
+      <Carousel
+        category={dadosIniciais.categorias[1]}
       />
 
       <Carousel
-      category={dadosIniciais.categorias[3]}
+        category={dadosIniciais.categorias[2]}
       />
 
       <Carousel
-      category={dadosIniciais.categorias[4]}
+        category={dadosIniciais.categorias[3]}
       />
 
       <Carousel
-      category={dadosIniciais.categorias[5]}
+        category={dadosIniciais.categorias[4]}
       />
 
-      <Footer/>
+      <Carousel
+        category={dadosIniciais.categorias[5]}
+      />
+
+      <Footer />
     </div>
   );
 }
